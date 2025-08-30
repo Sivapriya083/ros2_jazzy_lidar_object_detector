@@ -10,7 +10,7 @@ Key features include:
 - Integration with Gazebo simulations and ROS 2 ecosystem  
 - Published output suitable for downstream navigation and control nodes
     
-click [here](https://youtu.be/Oc131PJi4ho) to see the output.
+click [here](https://youtu.be/Oc131PJi4ho) to see the output video.
 
 
 ---
@@ -28,7 +28,7 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your_username/ros2_jazzy_lidar_object_detector.git
+git clone https://github.com/sivapriya083/ros2_jazzy_lidar_object_detector.git
 
 # Install Python dependencies
 pip install -r ros2_jazzy_lidar_object_detector/requirements.txt
