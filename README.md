@@ -53,14 +53,15 @@ source install/setup.bash
    ```bash
    ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
    ```
+    [png]()
 
-2. Run the closest object detector node:
+3. Run the closest object detector node:
 
    ```bash
    ros2 run ros2_jazzy_lidar_object_detector closest_object_detector
    ```
 
-3. The node will:
+4. The node will:
 
    * Subscribe to `/scan` (`sensor_msgs/msg/LaserScan`)
    * Focus on ±15° in front of the robot
@@ -68,7 +69,7 @@ source install/setup.bash
    * Apply median/min filtering to reduce spikes
    * Publish filtered distance to `/closest_object_distance` (`std_msgs/msg/Float32`)
 
-4. To visualize the published distance:
+5. To visualize the published distance:
 
    ```bash
    ros2 topic echo /closest_object_distance
