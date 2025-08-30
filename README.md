@@ -57,8 +57,8 @@ source install/setup.bash
     To enable LIDAR Visualization:
 
       *Click on the three dots on the upper right corner og your gazebo window.
-      *Search for Visualize LIdar from the menu and click on it.
-      *Refresh the list of topics and choose the "/scan" topic.Ensure that display LIdar Visualization is checked.
+       Search for Visualize LIdar from the menu and click on it.
+       Refresh the list of topics and choose the "/scan" topic.Ensure that display LIdar Visualization is checked.
 
 3. Run the closest object detector node:
     In a new terminal after sourcing run:
