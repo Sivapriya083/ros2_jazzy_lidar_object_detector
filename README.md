@@ -30,8 +30,91 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
    mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
 ````
 
-2.Source ROS 2 environment:
+## Installation and Setup
+
+1. Create a ROS 2 workspace (if you don’t have one):
 
    ```bash
-      source /opt/ros/humble/setup.bash
-   ````
+   mkdir -p ~/ros2_ws/src
+   cd ~/ros2_ws/src
+   ```
+
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your_username/tortoisebot_lidar_tracker.git
+   ```
+
+3. Install Python dependencies:
+
+   ```bash
+   pip install -r tortoisebot_lidar_tracker/requirements.txt
+   ```
+
+4. Build the workspace:
+
+   ```bash
+   cd ~/ros2_ws
+   colcon build
+   source install/setup.bash
+   ```
+
+---
+
+## Usage
+
+1. Launch your TortoiseBot Gazebo simulation with LIDAR enabled:
+
+   ```bash
+   ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
+   ```
+
+2. Run the closest object detector node:
+
+   ```bash
+   ros2 run tortoisebot_lidar_tracker closest_object_detector
+   ```
+
+3. The node will:
+
+   * Subscribe to `/scan` (`sensor_msgs/msg/LaserScan`)
+   * Focus on ±15° in front of the robot
+   * Filter out invalid readings (`inf`, `nan`, `0`)
+   * Apply median/min filtering to reduce spikes
+   * Publish filtered distance to `/closest_object_distance` (`std_msgs/msg/Float32`)
+
+4. You can echo the published distance:
+
+   ```bash
+   ros2 topic echo /closest_object_distance
+   ```
+
+---
+
+## Simulation Notes
+
+* Ensure LIDAR plugin is enabled in the Gazebo TortoiseBot URDF.
+* Make sure the simulation publishes the `/scan` topic.
+* Adjust the filtering method (median, minimum, moving average) in the node as needed.
+
+---
+
+## Example Output
+
+```
+Closest object distance: 0.85 m
+Closest object distance: 0.82 m
+Closest object distance: 0.80 m
+...
+```
+
+---
+
+## License
+
+MIT License
+
+```
+
+
+
