@@ -54,14 +54,23 @@ source install/setup.bash
    ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
    ```
     ![](https://github.com/Sivapriya083/ros2_jazzy_lidar_object_detector/blob/main/lidar.png?raw=true)
+    To enable LIDAR Visualization:
+
+      *Click on the three dots on the upper right corner og your gazebo window
+      *Search for Visualize LIdar from the menu and click on it
+      *Refresh the list of topics and choose the "/scan" topic.Ensure that display LIdar Visualization is checked.
 
 3. Run the closest object detector node:
+    In a new terminal after sourcing run:
 
    ```bash
    ros2 run ros2_jazzy_lidar_object_detector closest_object_detector
    ```
 
-4. The node will:
+4. Control the robot
+   
+
+6. The node will:
 
    * Subscribe to `/scan` (`sensor_msgs/msg/LaserScan`)
    * Focus on ±15° in front of the robot
@@ -69,7 +78,7 @@ source install/setup.bash
    * Apply median/min filtering to reduce spikes
    * Publish filtered distance to `/closest_object_distance` (`std_msgs/msg/Float32`)
 
-5. To visualize the published distance:
+7. To visualize the published distance:
 
    ```bash
    ros2 topic echo /closest_object_distance
