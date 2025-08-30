@@ -56,8 +56,8 @@ source install/setup.bash
     ![](https://github.com/Sivapriya083/ros2_jazzy_lidar_object_detector/blob/main/lidar.png?raw=true)
     To enable LIDAR Visualization:
 
-      *Click on the three dots on the upper right corner og your gazebo window
-      *Search for Visualize LIdar from the menu and click on it
+      *Click on the three dots on the upper right corner og your gazebo window.
+      *Search for Visualize LIdar from the menu and click on it.
       *Refresh the list of topics and choose the "/scan" topic.Ensure that display LIdar Visualization is checked.
 
 3. Run the closest object detector node:
