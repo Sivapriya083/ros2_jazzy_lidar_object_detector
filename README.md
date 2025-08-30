@@ -8,7 +8,9 @@ Key features include:
 - Configurable field-of-view filtering  
 - Spike reduction and noise filtering for stable readings  
 - Integration with Gazebo simulations and ROS 2 ecosystem  
-- Published output suitable for downstream navigation and control nodes  
+- Published output suitable for downstream navigation and control nodes
+    
+click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 
 
 ---
@@ -22,6 +24,7 @@ Key features include:
 ---
 
 ## Prerequisites
+
 1. ROS 2 workspace:  
    ```bash
    mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
@@ -30,9 +33,8 @@ Key features include:
 2. Source ROS 2 environment:
 
    ```bash
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    ```
-3. Gazebo TortoiseBot simulation with LIDAR enabled.
 
 ---
 
@@ -41,7 +43,7 @@ Key features include:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your_username/tortoisebot_lidar_tracker.git
+   git clone https://github.com/sivapriya083/tortoisebot_lidar_tracker.git
    ```
 2. Install Python dependencies:
 
@@ -58,18 +60,23 @@ Key features include:
 
 ---
 
-## Usage
+## Running the simulation
 
 1. Launch TortoiseBot Gazebo simulation:
 
    ```bash
-   ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
+   ros2 launch tortoisebot_gazebo gazebo_world.launch.py
    ```
+
+To enable lidar visualization:
+* Click on the three dots on the upper right corner of your gazebo window
+* Search for Visualize Lidar from the menu and click on it
+* Refresh the lists of topics and choose the /scan topic.Ensure that display Lidar Visualization is checked  
 
 2. Run the closest object detector node:
 
    ```bash
-   ros2 run tortoisebot_lidar_tracker closest_object_detector
+   ros2 run tortoisebot_gazebo closest_object_detector
    ```
 
 3. The node will:
@@ -85,6 +92,13 @@ Key features include:
    ```bash
    ros2 topic echo /closest_object_distance
    ```
+5. Control the Robot
+
+   In a new terminal, start keyboard teleoperation to test the detection:
+
+    ```bash
+       ros2 run teleop_twist_keyboard teleop_twist_keyboard
+    ```
 
 ---
 
