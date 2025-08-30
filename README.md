@@ -46,7 +46,7 @@ source install/setup.bash
 
 ---
 
-## Usage
+## Simulation
 
 1. Launch the TortoiseBot Gazebo simulation with LIDAR enabled:
 
