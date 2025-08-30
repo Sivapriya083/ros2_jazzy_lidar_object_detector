@@ -69,8 +69,40 @@ source install/setup.bash
 
 4. Control the robot
    
+---
 
-6. The node will:
+### **Default Keyboard Controls (`teleop_twist_keyboard`)**
+
+* **Movement:**
+
+  * `i` → move forward
+  * `,` → move backward
+  * `j` → turn left
+  * `l` → turn right
+  * `u` → move forward-left (diagonal)
+  * `o` → move forward-right
+  * `m` → move backward-left
+  * `.` → move backward-right
+
+* **Stop:**
+
+  * `k` → stop
+
+* **Speed Adjustments:**
+
+  * `q` → increase linear speed
+  * `z` → decrease linear speed
+  * `w` → increase angular speed
+  * `x` → decrease angular speed
+
+* **Exit:**
+
+  * `CTRL+C` → quit the node
+
+---
+
+
+5. The node will:
 
    * Subscribe to `/scan` (`sensor_msgs/msg/LaserScan`)
    * Focus on ±15° in front of the robot
@@ -78,7 +110,7 @@ source install/setup.bash
    * Apply median/min filtering to reduce spikes
    * Publish filtered distance to `/closest_object_distance` (`std_msgs/msg/Float32`)
 
-7. To visualize the published distance:
+6. To visualize the published distance:
 
    ```bash
    ros2 topic echo /closest_object_distance
