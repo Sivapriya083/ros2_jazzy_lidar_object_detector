@@ -53,7 +53,7 @@ source install/setup.bash
    ```bash
    ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
    ```
-    [png]()
+    [png](https://github.com/Sivapriya083/ros2_jazzy_lidar_object_detector/blob/main/lidar.png?raw=true)
 
 3. Run the closest object detector node:
 
