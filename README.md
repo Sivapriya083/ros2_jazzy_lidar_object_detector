@@ -16,54 +16,39 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 ---
 
 ## System Requirements
-- Ubuntu 24.04  
-- ROS 2 Jazzy  
-- Gazebo Harmonic
+
+- **OS**: Ubuntu 24.04  
+- **ROS 2**: Jazzy Jalisco  
+- **Simulator**: Gazebo Harmonic  
+- **Python**: 3.10+  
+- **Build Tool**: colcon  
 
 
----
+## Installation & Setup
 
-## Prerequisites
+```bash
+# Clone the repository
+git clone https://github.com/your_username/ros2_jazzy_lidar_object_detector.git
 
-1. ROS 2 workspace:  
-   ```bash
-   mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
-````
+# Install Python dependencies
+pip install -r ros2_jazzy_lidar_object_detector/requirements.txt
 
-## Installation and Setup
+# Build the workspace
+cd ~/ros2_ws
+colcon build
 
-1. Create a ROS 2 workspace (if you don’t have one):
+# Source ROS 2 environment
+source /opt/ros/jazzy/setup.bash
 
-   ```bash
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws/src
-   ```
-
-2. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your_username/tortoisebot_lidar_tracker.git
-   ```
-
-3. Install Python dependencies:
-
-   ```bash
-   pip install -r tortoisebot_lidar_tracker/requirements.txt
-   ```
-
-4. Build the workspace:
-
-   ```bash
-   cd ~/ros2_ws
-   colcon build
-   source install/setup.bash
-   ```
+# Source your workspace
+source install/setup.bash
+```
 
 ---
 
 ## Usage
 
-1. Launch your TortoiseBot Gazebo simulation with LIDAR enabled:
+1. Launch the TortoiseBot Gazebo simulation with LIDAR enabled:
 
    ```bash
    ros2 launch tortoisebot_gazebo tortoisebot_world.launch.py
@@ -72,7 +57,7 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 2. Run the closest object detector node:
 
    ```bash
-   ros2 run tortoisebot_lidar_tracker closest_object_detector
+   ros2 run ros2_jazzy_lidar_object_detector closest_object_detector
    ```
 
 3. The node will:
@@ -83,7 +68,7 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
    * Apply median/min filtering to reduce spikes
    * Publish filtered distance to `/closest_object_distance` (`std_msgs/msg/Float32`)
 
-4. You can echo the published distance:
+4. To visualize the published distance:
 
    ```bash
    ros2 topic echo /closest_object_distance
@@ -93,9 +78,9 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 
 ## Simulation Notes
 
-* Ensure LIDAR plugin is enabled in the Gazebo TortoiseBot URDF.
-* Make sure the simulation publishes the `/scan` topic.
-* Adjust the filtering method (median, minimum, moving average) in the node as needed.
+* Ensure the LIDAR plugin is enabled in the Gazebo TortoiseBot URDF.
+* Confirm that the `/scan` topic is publishing.
+* Filtering method (median, minimum, moving average) can be adjusted in the node code.
 
 ---
 
@@ -105,16 +90,15 @@ click [here](https://youtu.be/Oc131PJi4ho) to see the output.
 Closest object distance: 0.85 m
 Closest object distance: 0.82 m
 Closest object distance: 0.80 m
-...
 ```
 
 ---
 
 ## License
 
-MIT License
+This project is licensed under the **MIT License**.
 
-```
+
 
 
 
